@@ -1,24 +1,25 @@
+#include <stdio.h>
 #include <stdlib.h>
-#include <stdlib.h>
-#include <string.h>
+#include <time.h>
 
 /**
  * main - Entry point
- *
- * Description: print all alphabet lettres exept q and e
- *
- * Return: Always 0(Success)
-*/
-int main(void)
-{
-	int i;
+ * Return: always 0 (Success)
+ */
 
-	for (i = 97; i < 123; i++)
+int main(void)
+
+{
+
+	char low, e, q;
+
+	e = 'e';
+	q = 'q';
+
+	for (low = 'a'; low <= 'z'; low++)
 	{
-		if (i != 101 && i != 113)
-		{
-			putchar(i);
-		}
+	if (low != e && low != q)
+	putchar(low);
 	}
 	putchar('\n');
 	return (0);

@@ -1,4 +1,6 @@
 #include <stdlib.h>
+#include <stdlib.h>
+#include <string.h>
 
 /**
  * main - Entry point
@@ -7,19 +9,17 @@
  *
  * Return: Always 0(Success)
 */
-
 int main(void)
 {
-	char ch = 'a';
+	int i;
 
-	while (ch <= 'z')
+	for (i = 97; i < 123; i++)
 	{
-		if (ch <= 'e' || ch == 'q')
-			c++;
-		putchar(ch);
-		c++;
+		if (i != 101 && i != 113)
+		{
+			putchar(i);
+		}
 	}
 	putchar('\n');
-
 	return (0);
 }

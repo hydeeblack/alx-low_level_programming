@@ -1,29 +1,33 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
- * print_square - function that prints a square
- * @size: size of both widith and length
- * Return: square made of '#'
+ * main - print the number for 1 to 100
+ * 3 multiples print Fizz instead of the number
+ * 5 print Buzz instead of number
+ * 3 & 5 print FizzBuzz
+ * Return: Alwayz 0
  */
-void print_square(int size)
+int main(void)
 {
+int i;
+char f[] = "Fizz";
+char b[] = "Buzz";
+char fb[] = "FizzBuzz";
 
-int co, ro;
-if (size <= 0)
+for (i = 1; i <= 100; i++)
 {
-_putchar('\n');
-}
+if (i == 100)
+printf("%s", b);
+else if ((i % 3 == 0) && (i % 5 == 0))
+printf("%s", fb);
+else if (i % 3 == 0)
+printf("%s", f);
+else if (i % 5 == 0)
+printf("%s", b);
 else
-{
-for (co = 1; co <= size; co++)
-{
-_putchar('#');
-
-for (ro = 2; ro <= size; ro++)
-{
-_putchar('#');
+printf("%d", i);
 }
-_putchar('\n');
-}
-}
+printf('\n');
+return (0);
 }

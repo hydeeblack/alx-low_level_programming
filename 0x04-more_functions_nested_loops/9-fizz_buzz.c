@@ -1,41 +1,29 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
- * main - prints a Fizz Buzz program
- * Return: always 0 (Success)
+ * print_square - function that prints a square
+ * @size: size of both widith and length
+ * Return: square made of '#'
  */
-
-int main(void)
-
+void print_square(int size)
 {
 
-int x;
-
-for (x = 1; x <= 100; x++)
+int co, ro;
+if (size <= 0)
 {
-if ((x % 3 == 0) && (x % 5 == 0))
-{
-ptintf("FizzBuzz");
-}
-else if (x % 3 ==0)
-{
-printf("Fizz");
-}
-else if (x % 5 == 0)
-{
-printf("Buzz");
+_putchar('\n');
 }
 else
 {
-printf("%d", x);
-}
-if (x != 100)
+for (co = 1; co <= size; co++)
 {
-printf(" ");
-}
-}
-printf("\n");
-return(0);
+_putchar('#');
 
+for (ro = 2; ro <= size; ro++)
+{
+_putchar('#');
+}
+_putchar('\n');
+}
+}
 }

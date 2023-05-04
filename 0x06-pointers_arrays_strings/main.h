@@ -1,8 +1,9 @@
-#ifndef MAIN.H
-#define MAIN.H
+#ifndef MAIN_H
+#define MAIN_H
 
-#include <stdio.h>
-
+/**
+ * This file has all prototypes for the 0x06. C - More pointers. arrays and strings
+ */
 int _putchar(char c);
 char *_strcat(char *dest, char *src);
 char *_strncat(char *dest, char *src, int n);
@@ -12,5 +13,4 @@ void reverse_array(int *a, int n);
 char *string_toupper(char *);
 char *cap_string(char *);
 char *leet(char *);
-
 #endif

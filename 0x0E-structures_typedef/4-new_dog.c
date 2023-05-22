@@ -18,14 +18,14 @@ int _strlen(const char *str)
 }
 
 /**
- * _strcopy - a function that returns @dest with a copy of a string from @src
+ * _strcpy - a function that returns @dest with a copy of a string from @src
  * @src: string to copy
  * @dest: copy string to here
  *
  * Return: @dest
  */
 
-char _strcopy(char *dest, char *src)
+char _stropy(char *dest, char *src)
 {
 	int i;
 
@@ -73,9 +73,9 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 	}
 	
-	dog->name = _strcopy(dog->name, name);
+	dog->name = _strcpy(dog->name, name);
 	dog->age = age;
-	dog->owner = _strcopy(dog->owner, owner);
+	dog->owner = _strcpy(dog->owner, owner);
 	
 	return (dog);
 }	

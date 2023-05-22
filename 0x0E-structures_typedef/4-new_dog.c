@@ -1,81 +1,93 @@
 #include <stdlib.h>
 #include "dog.h"
 
-/**
- * _strlen - a function that gets a length of string
- * @str: the string to get the length
- *
- * Return: length of @str
- */
-
-int _strlen(const char *str)
-{
-	int length = 0;
-
-	while (*str++)
-		length++;
-	return (length);
-}
+int _strlen(char*s);
+char *_strcpy(char *dest, char *src);
 
 /**
- * _strcpy - a function that returns @dest with a copy of a string from @src
- * @src: string to copy
- * @dest: copy string to here
+ * new_dog - ...
+ * @name: ...
+ * @age: ...
+ * @owner: ...
  *
- * Return: @dest
- */
-
-char _stropy(char *dest, char *src)
-{
-	int i;
-
-	for (i = 0; src[i]; i++)
-		dest[i] = src[i];
-	dest[i] = '\0';
-
-	return (dest);
-}
-
-/**
- * new_dog - a function that creates a new dog
- * @name: name of dog
- * @age: age of dog
- * @owner: dog owner
- *
- * Return: struct pointer dog
- * NULL if function fails
+ * Return: ...
  */
 
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *dog;
-
-	/* if name and owner are empty and age is less than zero return NULL */
-	if (!name || age < 0 || !owner)
-		return (NULL);
-
-	dog = (dog_t *) = malloc(sizeof(dog_t));
-	if (dog == NULL)
-		return (NULL);
-
-	dog->name = malloc(sizeof(char) * (_strlen(name) + 1));
-	if ((*dog).name == NULL)
+	dog_t *max_dog;
+	int name_l = 0, own_l = 0;
+	
+	if (name != NULL && owner != NULL)
 	{
-		free(dog);
-		return (NULL);
+		name_l = _strlen(name) + 1;
+		onw_l = _strlen(owner) + 1;
+		max_dog = malloc(sizeof(dog_t));
+
+		if (max_dog == NULL)
+			return (NULL);
+		max_dog->name = malloc(sizeof(char) * name_l);
+
+		if (max_dog->name == NULL)
+		{
+			free(max_dog);
+			return (NULL);
+		}
+
+		max_dog->owner = malloc(sizeof(char) * own_l);
+
+		if (max_dog->owner == NULL)
+		{
+			free(max_dog->name);
+			free(max_dog);
+			return (NULL);
+		}
+
+		max_dog->name = _strcpy(max_dog->name, name);
+		max_dog->owner = _strcpy(max_dog->owner, owner);
+		max_dog->age = age;
 	}
 
-	dog->owner = malloc(sizeof(char) * (_strlen(owner) + 1));
-	if ((*dog).owner == NULL)
+	return (max_dog);
+}
+
+/**
+ * _strlen - Returns the length of a string
+ * @s: String to count
+ *
+ * Return: String length
+ */
+
+int _strlen(char *s)
+{
+	int c = 0;
+
+	for (; *s != '\0'; s++)
 	{
-		free(dog->name);
-		free(dog);
-		return (NULL);
+		c++;
 	}
-	
-	dog->name = _strcpy(dog->name, name);
-	dog->age = age;
-	dog->owner = _strcpy(dog->owner, owner);
-	
-	return (dog);
-}	
+
+	return (c);
+}
+
+/**
+ * _strcpy - Copy a string
+ * @dest: Destination value
+ * @src: Source value
+ *
+ * Return: the pointer to dest
+ */
+
+char *_strcpy(char *dest, char *src)
+{
+	int i;
+
+	for (i = 0; src[i] != '\0'; i++)
+	{
+		dest[i] =src[i];
+	}
+
+	dest[i++] = '\0';
+
+	return (dest);
+}
